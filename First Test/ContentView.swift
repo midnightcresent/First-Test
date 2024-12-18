@@ -34,20 +34,23 @@ struct ContentView: View {
                 }
                 .frame(width: proxy.size.width, height: 74)
                 
-                TabView {
-                    
-                    Tab("Home", image: "ic-home") {
-                        HomeScreen()
+//                ZStack {
+//                    Color.black
+                    TabView {
+                        
+                        Tab("Home", image: "ic-home") {
+                            HomeScreen()
+                        }
+                        
+                        Tab("Activity Trail", image: "ic-activity") {
+                            ActivityTrailScreen()
+                        }
+                        
+                        Tab("Profile", image: "ic-assistance") {
+                            ProfileScreen()
+                        }
                     }
-                    
-                    Tab("Activity Trail", image: "ic-activity") {
-                        ActivityTrailScreen()
-                    }
-                    
-                    Tab("Profile", image: "ic-assistance") {
-                        ProfileScreen()
-                    }
-                }
+//                }
             }
             .frame(width: proxy.size.width, height: proxy.size.height)
             .padding(0)

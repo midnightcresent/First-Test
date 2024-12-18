@@ -8,22 +8,33 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    let items = ["Apple", "Banana", "Cherry"]
+    
     var body: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 20)
             HStack(spacing: 5) {
                 Text("Welcome,")
+                    .foregroundStyle(.black)
                     .font(.custom("WorkSans-Regular", size: 16))
                 Text("Kunal Rao")
+                    .foregroundStyle(.black)
                     .font(.custom("WorkSans-SemiBold", size: 16))
                 Spacer()
             }
             .padding(.horizontal, 20)
             Spacer().frame(height: 16)
-            CustomCard
-                .cornerRadius(4)
-                .padding(.horizontal, 20)
-            
+            List {
+                ForEach(items, id: \.self) { item in
+                    CustomCard
+                        .cornerRadius(4)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 8)
+                        .listRowBackground(Color("GodrejBlueLight"))
+                        .listRowSeparator(.hidden)
+                }
+            }
+            .scrollContentBackground(.hidden)
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -105,7 +116,6 @@ struct HomeScreen: View {
                 .frame(height: 90)
                 .frame(minWidth: 94.65)
                 .cornerRadius(4)
-                Spacer()
                 ZStack {
                     Color("GodrejBlueLight")
                     VStack {
@@ -121,7 +131,6 @@ struct HomeScreen: View {
                 .frame(height: 90)
                 .frame(minWidth: 94.65)
                 .cornerRadius(4)
-                Spacer()
                 ZStack {
                     Color("GodrejBlueLight")
                     VStack {
@@ -155,7 +164,7 @@ struct HomeScreen: View {
                 }
             }
             .cornerRadius(4)
-            .frame(maxWidth: .infinity, maxHeight: 32)
+            .frame(maxWidth: .infinity, minHeight: 32)
             .padding(.horizontal, 17.02)
             Spacer().frame(height: 12)
             Button(action: {}) {
@@ -179,7 +188,7 @@ struct HomeScreen: View {
                     }
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: 48)
+            .frame(maxWidth: .infinity, minHeight: 48)
             .cornerRadius(4)
             .padding(.horizontal, 15)
             Spacer().frame(height: 16)

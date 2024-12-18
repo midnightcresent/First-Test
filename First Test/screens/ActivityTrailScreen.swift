@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct ActivityTrailScreen: View {
+    
     var body: some View {
-        Text("Hello, Activity!")
+        
+        VStack(spacing: 0) {
+            Text("Hello World")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
